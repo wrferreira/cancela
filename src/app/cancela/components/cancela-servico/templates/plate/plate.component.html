@@ -1,0 +1,35 @@
+<section class="plateContainer">
+  <div class="plateContainer__border">
+    <section class="plateContainer__header">
+      <div class="plateContainer__imgContainer">
+        <img src="/assets/logos/mercosul.png" />
+      </div>
+      <h2>Brasil</h2>
+      <div class="plateContainer__imgContainer">
+        <img class="plateContainer__imgFlag" src="/assets/logos/brasil.png" />
+      </div>
+    </section>
+
+    <section class="plateContainer__content">
+      <div class="plateContainer__columnImage">
+        <div class="plateContainer__imgContainerQrCode">
+          <img src="/assets/logos/qrcode.png" />
+        </div>
+        <span><b>BR</b></span>
+      </div>
+      <div class="plateContainer__plateNumberContainer">
+        <div *ngIf="plate?.length; else default">
+          <span class="plateContainer__plateNumber"> {{ initialPlate }} </span
+          ><br />
+          <span class="plateContainer__plateNumber">
+            {{ endPlate }}
+          </span>
+        </div>
+        <ng-template #default>
+          <span class="plateContainer__plateNumber"> PLA </span><br />
+          <span class="plateContainer__plateNumber"> 8T12 </span>
+        </ng-template>
+      </div>
+    </section>
+  </div>
+</section>

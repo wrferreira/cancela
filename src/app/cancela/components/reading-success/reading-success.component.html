@@ -1,0 +1,28 @@
+<section class="resultContainer" *ngIf="spinner">
+  <app-details-motorcycle [dataVehicle]="dataVehicle"></app-details-motorcycle>
+
+  <section class="resultContainer__infoDisplay">
+    <div class="resultContainer__infoIcon">
+      <mat-icon
+        class="resultContainer__infoIcon--pulse"
+        [ngClass]="!infoConsulta?.status ? 'error' : ''"
+      >
+        {{ infoConsulta?.icon }}
+      </mat-icon>
+    </div>
+    <div class="resultContainer__infoAditional">
+      <h3>{{ infoConsulta?.title }}</h3>
+      <h5>{{ infoConsulta?.message }}</h5>
+      <div class="resultContainer__errorList" *ngIf="getErrorList()">
+        <span>Observações:</span>
+        <ul>
+          <li class="redirect" *ngFor="let error of infoConsulta?.listaErros">
+            {{ "- " + error }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- <app-spinner *ngIf="spinner"></app-spinner> -->

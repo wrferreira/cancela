@@ -1,0 +1,97 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background-color: #000;
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 110px;
+      height: 110px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__title {
+    margin: 5px 0 16px 0;
+    font-family: sans-serif;
+    color: #fff;
+  }
+
+  &__email {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    text-align: start;
+  }
+
+  &__password {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    position: relative;
+    text-align: start;
+    margin-top: 10px;
+
+    mat-icon {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 15px;
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+
+  &__btnLogin {
+    width: 100%;
+    text-align: end;
+    margin-top: 8px;
+
+    &__label {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+  &__btnLogin button {
+    border-radius: 20px;
+    margin-top: 15px;
+    width: 150px;
+
+    ::ng-deep .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: #fff;
+    }
+    ::ng-deep .mat-button-wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__form {
+    width: 260px;
+    text-align: center;
+    margin-top: 15px;
+
+    label {
+      color: #fff;
+    }
+
+    input {
+      background-color: #202722;
+      color: #fff;
+      outline: none;
+      border-radius: 5px;
+      padding: 10px 5px;
+      margin-top: 3px;
+      outline: none;
+      border: 0;
+    }
+  }
+}

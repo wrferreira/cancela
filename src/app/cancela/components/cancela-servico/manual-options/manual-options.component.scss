@@ -1,0 +1,53 @@
+.servicoContainer {
+  box-shadow: none;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  background-color: #f5f5f5;
+
+  &__content {
+    display: flex;
+    height: calc(100% - 70px);
+    justify-content: space-between;
+  }
+
+  &__options {
+    display: block;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__userInfo {
+    width: 35%;
+    align-items: center;
+  }
+
+  &__template {
+    margin-right: 50px;
+  }
+
+  &__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+section {
+  display: grid;
+  justify-content: center;
+
+  mat-button-toggle {
+    width: 100%;
+  }
+
+  .mat-button-toggle-checked {
+    color: #fff;
+    background-color: #00b131;
+  }
+}
+
+:host::ng-deep mat-step-header {
+  margin-bottom: 20px;
+}

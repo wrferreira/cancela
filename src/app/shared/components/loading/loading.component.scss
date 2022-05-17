@@ -1,0 +1,40 @@
+.loadingContainer {
+  box-shadow: none;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0, 90%);
+  flex-direction: column;
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
+
+  &__progress {
+    width: 30%;
+    background: transparent;
+    box-shadow: none;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 23px;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+  }
+}

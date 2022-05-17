@@ -1,0 +1,38 @@
+<section class="searchContainer">
+  <h2 class="searchContainer__title">Entre com a placa ou o chassi da moto:</h2>
+  <form class="searchContainer__form" (ngSubmit)="btnSearchClick()">
+    <mat-form-field appearance="fill">
+      <mat-label>Placa/Chassi</mat-label>
+      <input
+        matInput
+        placeholder="PLA8T12"
+        [formControl]="plateFormControl"
+        name="plate"
+        maxlength="17"
+      />
+      <button
+        *ngIf="plateFormControl.value"
+        matSuffix
+        mat-icon-button
+        (click)="reset()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-error
+      *ngIf="errorMessage !== ''"
+      class="searchContainer__errorMessage"
+    >
+      {{ errorMessage }}
+    </mat-error>
+    <button
+      mat-raised-button
+      color="primary"
+      class="searchContainer__btnSearch"
+      [disabled]="validaBtn()"
+    >
+      <mat-icon class="icon-search">search</mat-icon>
+      <span>Procurar</span>
+    </button>
+  </form>
+</section>

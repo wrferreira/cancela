@@ -1,0 +1,17 @@
+<section class="readingErrorContainer">
+  <section class="readingErrorContainer__info">
+    <mat-icon>report</mat-icon>
+    <h1>Ops.. não conseguimos fazer a identificação automática da moto</h1>
+  </section>
+
+  <section class="readingErrorContainer__insertData">
+    <div class="readingErrorContainer__template">
+      <app-plate *ngIf="templatePlaca" [plate]="plateSearch"></app-plate>
+      <app-chassi *ngIf="!templatePlaca" [plate]="plateSearch"></app-chassi>
+    </div>
+    <app-search
+      (searchChange)="plateChange($event)"
+      (btnClicked)="searchClick($event)"
+    ></app-search>
+  </section>
+</section>

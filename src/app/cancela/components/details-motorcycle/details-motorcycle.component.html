@@ -1,0 +1,37 @@
+<section class="userDetailContainer">
+  <div class="userDetailContainer__details">
+    <h1>Detalhes</h1>
+    <span>
+      Placa: <b>{{ dataVehicle?.placa | uppercase }}</b>
+    </span>
+    <span>
+      Situação: <b>{{ veiculoSituacao[dataVehicle.veiculoSituacao] }}</b>
+    </span>
+    <span>
+      Chassi: <b>{{ dataVehicle?.chassi }}</b>
+    </span>
+    <span>
+      Cliente: <b>{{ dataVehicle?.clienteNome | uppercase }}</b>
+    </span>
+  </div>
+  <div class="userDetailContainer__carousel">
+    <mat-carousel
+      timings="200ms ease-in"
+      [autoplay]="true"
+      [interval]="3000"
+      [loop]="true"
+      [useMouseWheel]="true"
+      [hideIndicators]="true"
+      [useKeyboard]="true"
+      [maintainAspectRatio]="false"
+    >
+      <mat-carousel-slide *ngFor="let urlImage of listaFotos">
+        <img
+          class="img-info"
+          src="{{ urlImage.url }}"
+          alt="{{ urlImage.title }}"
+        />
+      </mat-carousel-slide>
+    </mat-carousel>
+  </div>
+</section>

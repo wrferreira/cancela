@@ -1,0 +1,63 @@
+<section class="servicoContainer">
+  <div class="servicoContainer__content">
+    <div class="servicoContainer__options">
+      <mat-stepper orientation="vertical" #stepper>
+        <mat-step>
+          <ng-template matStepLabel>Direção</ng-template>
+          <ng-template matStepContent>
+            <mat-button-toggle-group
+              matStepperNext
+              [(ngModel)]="directionSelected"
+              (change)="onDirectionSelected()"
+            >
+              <mat-button-toggle [value]="10">Entrada</mat-button-toggle>
+              <mat-button-toggle [value]="20">Saída</mat-button-toggle>
+            </mat-button-toggle-group>
+          </ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Motivo {{ directionLabel }}</ng-template>
+          <ng-template matStepContent>
+            <section *ngIf="directionSelected != null">
+              <mat-button-toggle-group
+                (change)="onOptionSelected()"
+                [(ngModel)]="optionSelected"
+              >
+                <mat-button-toggle
+                  color="primary"
+                  *ngFor="let opt of optionsCancela"
+                  [value]="opt.id"
+                  >{{ opt.descricao }}
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </section>
+          </ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Consulta</ng-template>
+          <section class="servicoContainer__search">
+            <div class="servicoContainer__template">
+              <app-plate
+                *ngIf="templatePlaca"
+                [plate]="plateSearch"
+              ></app-plate>
+              <app-chassi
+                *ngIf="!templatePlaca"
+                [plate]="plateSearch"
+              ></app-chassi>
+            </div>
+            <app-search
+              (searchChange)="plateChange($event)"
+              (btnClicked)="searchClick($event)"
+            ></app-search>
+          </section>
+        </mat-step>
+      </mat-stepper>
+    </div>
+    <div class="servicoContainer__userInfo" *ngIf="showDetails">
+      <app-details-motorcycle
+        [dataVehicle]="dataVehicle"
+      ></app-details-motorcycle>
+    </div>
+  </div>
+</section>

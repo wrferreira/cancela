@@ -1,0 +1,79 @@
+@use "@angular/material" as mat;
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&display=swap");
+
+$mottu-typography: mat.define-typography-config(
+  $font-family: "Barlow",
+);
+
+$light-primary-text: #ffffff;
+$dark-primary-text: rgba(#222222, 0.87);
+
+// Theme Config
+body {
+  // Primary
+  --primary-color: #00b131;
+  --primary-lighter-color: #b3e8c1;
+  --primary-darker-color: #00981f;
+
+  // Accent
+  --accent-color: #222222;
+  --accent-lighter-color: #bdbdbd;
+  --accent-darker-color: #141414;
+
+  // Warn
+  --warn-color: #ec3c3c;
+  --warn-lighter-color: #f9c5c5;
+  --warn-darker-color: #e42727;
+
+  font-family: "Barlow";
+}
+
+$mat-primary: (
+  main: #00b131,
+  lighter: #b3e8c1,
+  darker: #00981f,
+  200: #00b131,
+  contrast: (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+
+$mat-accent: (
+  main: #222222,
+  lighter: #bdbdbd,
+  darker: #141414,
+  200: #222222,
+  contrast: (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+
+$mat-warn: (
+  main: #ec3c3c,
+  lighter: #f9c5c5,
+  darker: #e42727,
+  200: #ec3c3c,
+  contrast: (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette($mat-primary, main, lighter, darker),
+      accent: mat.define-palette($mat-accent, main, lighter, darker),
+      warn: mat.define-palette($mat-warn, main, lighter, darker),
+    ),
+  )
+);
+
+@include mat.core($mottu-typography);
+@include mat.all-component-themes($theme);

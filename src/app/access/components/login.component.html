@@ -1,0 +1,33 @@
+<div class="loginContainer">
+  <section class="loginContainer__logo">
+    <img src="assets/logos/logo-mottu.png" />
+    <mat-card-title class="loginContainer__title">
+      C A N C E L A
+    </mat-card-title>
+  </section>
+
+  <mat-card-content class="loginContainer__form">
+    <form [formGroup]="loginForm">
+      <div class="loginContainer__email">
+        <label>Seu email</label>
+        <input type="text" placeholder="Seu E-mail" formControlName="email" />
+      </div>
+      <div class="loginContainer__password">
+        <label>Sua senha</label>
+        <input
+          type="{{ passwordType }}"
+          placeholder="Senha"
+          formControlName="senha"
+        />
+        <mat-icon (click)="setPasswordView()">
+          {{ passwordType == "text" ? "visibility" : "visibility_off" }}
+        </mat-icon>
+      </div>
+      <div class="loginContainer__btnLogin">
+        <button (click)="login()" mat-raised-button color="primary">
+          <span class="loginContainer__btnLogin__label">LOGIN</span>
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</div>

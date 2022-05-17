@@ -1,0 +1,16 @@
+<section class="loadingContainer">
+  <figure>
+    <img src="/assets/logos/logo-mottu.png" />
+  </figure>
+  <div class="loadingContainer__progress">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <section>
+    <p class="loadingContainer__title">
+      Estamos consultando a placa do veículo...
+    </p>
+    <p *ngIf="waiting" class="loadingContainer__subtitle">
+      Só mais um instante
+    </p>
+  </section>
+</section>
